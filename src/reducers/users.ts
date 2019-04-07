@@ -1,7 +1,6 @@
 import { ActionTypes as types } from '../types'
 import { User } from '../types'
 
-
 const users = (state: User[] = [], action: any) => {
   switch (action.type) {
     case types.ADD_USER:
