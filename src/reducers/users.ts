@@ -4,7 +4,9 @@ import { User } from '../types'
 const users = (state: User[] = [], action: any) => {
   switch (action.type) {
     case types.ADD_USER:
-      return state.concat([{ name: action.name, id: action.id }])
+      return state.concat([action.name])
+    case types.REMOVE_USER:
+      return state.filter(name => name !== action.name)
     case types.USERS_LIST:
       return action.users
     default:

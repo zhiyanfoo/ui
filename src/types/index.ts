@@ -1,19 +1,19 @@
 export const enum ActionTypes {
   ADD_MESSAGE = 'ADD_MESSAGE',
-  MESSAGE_RECEIVED = 'MESSAGE_RECEIVED',
+  NEW_MESSAGE = 'NEW_MESSAGE',
   ADD_USER = 'ADD_USER',
-  USERS_LIST = 'USERS_LIST'
+  REMOVE_USER = 'REMOVE_USER',
+  USERS_LIST = 'USERS_LIST',
+  MESSAGE_LIST = 'MESSAGE_LIST'
 }
 
 export interface User {
   name: string
-  id: number
 }
 
 export interface State {
   messages: MessageState
   users: User[]
-
 }
 
 export interface MessageState {

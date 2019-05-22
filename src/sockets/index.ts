@@ -1,5 +1,10 @@
 import { ActionTypes as types } from '../types'
-import { addUser, messageRecieved, populateUsersList } from '../actions'
+import {
+  addUser,
+  removeUser,
+  messageRecieved,
+  populateUsersList
+} from '../actions'
 import { Dispatch } from 'redux'
 
 const setupSocket = (dispatch: Dispatch, username: string) => {
@@ -15,15 +20,19 @@ const setupSocket = (dispatch: Dispatch, username: string) => {
   }
 
   socket.onmessage = event => {
+    console.log(event)
     const data = JSON.parse(event.data)
     console.log(data)
 
     switch (data.type) {
-      case types.ADD_MESSAGE:
-        dispatch(messageRecieved(data.message, data.author))
+      case types.NEW_MESSAGE:
+        dispatch(messageRecieved(data.message, data.author, data.id))
         break
       case types.ADD_USER:
         dispatch(addUser(data.name))
+        break
+      case types.REMOVE_USER:
+        dispatch(removeUser(data.name))
         break
       case types.USERS_LIST:
         dispatch(populateUsersList(data.users))

@@ -1,9 +1,9 @@
 import { MessageState } from '../types'
 import { ActionTypes as types } from '../types'
 import { createReducer } from '../utils/reducer'
-import { Action } from '../actions'
+// import { AddMessage, MessageList} from '../actions'
 
-const addMessage = (state: MessageState, action: Action) => {
+const addMessage = (state: MessageState, action: any) => {
   return {
     ...state,
     messages: state.messages.concat({
@@ -13,12 +13,20 @@ const addMessage = (state: MessageState, action: Action) => {
   }
 }
 
+const populateMessageList = (state: MessageState, action: any) => {
+  return {
+    ...state,
+    messages: action.messages
+  }
+}
+
 export const messages = createReducer(
   {
     messages: []
   },
   {
     [types.ADD_MESSAGE]: addMessage,
-    [types.MESSAGE_RECEIVED]: addMessage
+    [types.NEW_MESSAGE]: addMessage,
+    [types.MESSAGE_LIST]: populateMessageList
   }
 )

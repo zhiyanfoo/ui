@@ -3,7 +3,6 @@ import SidebarComponent from '../components/sidebar'
 import { State } from '../types'
 
 const mapStateToProps = (state: State) => {
-  console.log(state.users)
   return { users: state.users }
 }
 

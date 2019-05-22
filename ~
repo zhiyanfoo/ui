@@ -18,15 +18,10 @@ export const removeUser = (name: string) => ({
   name
 })
 
-export const messageRecieved = (
-  message: string,
-  author: string,
-  id: number
-) => ({
-  type: types.NEW_MESSAGE,
+export const messageRecieved = (message: string, author: string) => ({
+  type: types.MESSAGE_RECEIVED,
   message,
-  author,
-  id
+  author
 })
 
 export const populateUsersList = (users: number[]) => ({
