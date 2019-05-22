@@ -30,6 +30,11 @@ export const messageRecieved = (
 })
 
 export const populateUsersList = (users: number[]) => ({
-  type: types.USERS_LIST,
+  type: types.USERS,
   users
+})
+
+export const populateMessagesList = (messages: any) => ({
+  type: types.MESSAGES,
+  messages
 })

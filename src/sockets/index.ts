@@ -3,7 +3,8 @@ import {
   addUser,
   removeUser,
   messageRecieved,
-  populateUsersList
+  populateUsersList,
+  populateMessagesList
 } from '../actions'
 import { Dispatch } from 'redux'
 
@@ -34,8 +35,11 @@ const setupSocket = (dispatch: Dispatch, username: string) => {
       case types.REMOVE_USER:
         dispatch(removeUser(data.name))
         break
-      case types.USERS_LIST:
+      case types.USERS:
         dispatch(populateUsersList(data.users))
+        break
+      case types.MESSAGES:
+        dispatch(populateMessagesList(data.messages))
         break
       default:
         break

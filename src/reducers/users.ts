@@ -7,7 +7,7 @@ const users = (state: User[] = [], action: any) => {
       return state.concat([action.name])
     case types.REMOVE_USER:
       return state.filter(name => name !== action.name)
-    case types.USERS_LIST:
+    case types.USERS:
       return action.users
     default:
       return state

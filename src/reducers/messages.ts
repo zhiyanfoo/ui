@@ -8,7 +8,19 @@ const addMessage = (state: MessageState, action: any) => {
     ...state,
     messages: state.messages.concat({
       message: action.message,
-      author: action.author
+      author: action.author,
+      id: state.messages.length
+    })
+  }
+}
+
+const newMessage = (state: MessageState, action: any) => {
+  return {
+    ...state,
+    messages: state.messages.concat({
+      message: action.message,
+      author: action.author,
+      id: action.id
     })
   }
 }
@@ -26,7 +38,7 @@ export const messages = createReducer(
   },
   {
     [types.ADD_MESSAGE]: addMessage,
-    [types.NEW_MESSAGE]: addMessage,
-    [types.MESSAGE_LIST]: populateMessageList
+    [types.NEW_MESSAGE]: newMessage,
+    [types.MESSAGES]: populateMessageList
   }
 )
