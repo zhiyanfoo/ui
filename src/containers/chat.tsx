@@ -8,10 +8,8 @@ class Chat extends React.Component {
     return (
       <div id="container">
         <Sidebar />
-        <section id="main">
-          <MessagesList />
-          <AddMessage />
-        </section>
+        <MessagesList />
+        <AddMessage />
       </div>
     )
   }
